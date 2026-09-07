@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #FFF8EE;
+    --tank-border: #8CD3FF;
+    --tank-base: #FFAEC9;
+    --tank-rim: #FF82A9;
+    --accent-pink-start: #FF769F;
+    --accent-pink-end: #FF4E86;
+    --soft-blue: #E8F5FF;
+    --text-primary: #3B4E60;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  canvas {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+}
+
+.font-pixel {
+  font-family: 'Silkscreen', monospace;
+}
+
+/* Ambient bubble float animation */
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-80px) translateX(10px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.animate-float-bubble {
+  animation: floatBubble 4s ease-in-out infinite;
+}
+
+/* Modal pop-in */
+@keyframes cutePop {
+  0% {
+    transform: scale(0.94) translateY(8px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-pop {
+  animation: cutePop 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Gentle water caustics wave pulse */
+@keyframes gentleWater {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scaleY(1.03);
+  }
+}
+
+.animate-water-glimmer {
+  animation: gentleWater 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar for drawer and modals */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F8FC;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A8D8EA;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #89C4E1;
+}
